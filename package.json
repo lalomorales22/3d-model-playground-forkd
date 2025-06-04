@@ -1,7 +1,7 @@
 {
-  "name": "bot-buddy-workshop",
-  "version": "1.0.0",
-  "description": "Create your own AI Bot Buddy and tell stories together!",
+  "name": "project",
+  "private": true,
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,10 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "three": "^0.161.0",
-    "@mediapipe/tasks-vision": "^0.10.12",
-    "elevenlabs-node": "^2.0.3",
-    "@fal-ai/serverless-client": "^0.8.5",
-    "vite": "^5.0.12"
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.8"
   }
 }
