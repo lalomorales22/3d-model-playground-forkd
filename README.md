@@ -32,11 +32,17 @@ git clone https://github.com/collidingScopes/3d-model-playground
 # Navigate to the project directory
 cd 3d-model-playground
 
-# Serve with your preferred method (example using Python)
-python -m http.server
-```
+# Install dependencies
+npm install
 
-Then navigate to `http://localhost:8000` in your browser.
+# Start the development server
+npm run dev
+
+# Build and preview the production version
+npm run build
+npm start
+```
+Then navigate to the address shown in your terminal (http://localhost:5173 for dev or http://localhost:4173 for preview).
 
 ## License
 
