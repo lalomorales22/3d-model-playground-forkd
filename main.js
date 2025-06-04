@@ -7,6 +7,5 @@ if (!renderDiv) {
 } else {
     // Initialize the game with the render target
     var game = new Game(renderDiv);
-    // Start the game
-    game.start(); // The actual setup happens async within the Game class constructor
+    // The actual setup happens async within the Game class constructor
 }
