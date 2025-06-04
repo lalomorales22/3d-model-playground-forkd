@@ -24,6 +24,26 @@ export class Game {
         const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
         directionalLight.position.set(5, 5, 5);
         this.scene.add(directionalLight);
+
+        // Text element for displaying load errors if available
+        this.instructionText = document.getElementById('instruction-text');
+
+        // Load the default GLTF model
+        const loader = new GLTFLoader();
+        loader.load(
+            'assets/Stan.gltf',
+            (gltf) => {
+                this.scene.add(gltf.scene);
+            },
+            undefined,
+            (error) => {
+                const message = 'Failed to load assets/Stan.gltf';
+                if (this.instructionText) {
+                    this.instructionText.textContent = message;
+                }
+                console.error(message, error);
+            }
+        );
         
         // Start animation loop
         this.animate();
