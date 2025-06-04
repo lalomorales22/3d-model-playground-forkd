@@ -24,9 +24,41 @@ export class Game {
         const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
         directionalLight.position.set(5, 5, 5);
         this.scene.add(directionalLight);
-        
+
+        // Initial interaction mode
+        this.currentMode = 'drag';
+
+        // Grab instruction text element if it exists
+        this.instructionEl = document.getElementById('instruction-text');
+        this.updateInstruction(`Mode: ${this.currentMode}`);
+
+        // Set up speech manager for voice commands
+        this.speechManager = new SpeechManager(
+            null,
+            null,
+            (cmd) => this.handleVoiceCommand(cmd)
+        );
+        // Begin listening (will request microphone permissions)
+        if (this.speechManager) {
+            this.speechManager.requestPermissionAndStart();
+        }
+    
         // Start animation loop
         this.animate();
+    }
+
+    handleVoiceCommand(command) {
+        const validModes = ['drag', 'rotate', 'scale', 'animate'];
+        if (validModes.includes(command)) {
+            this.currentMode = command;
+            this.updateInstruction(`Mode: ${this.currentMode}`);
+        }
+    }
+
+    updateInstruction(text) {
+        if (this.instructionEl) {
+            this.instructionEl.textContent = text;
+        }
     }
 
     animate = () => {
