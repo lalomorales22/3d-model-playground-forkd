@@ -32,11 +32,19 @@ git clone https://github.com/collidingScopes/3d-model-playground
 # Navigate to the project directory
 cd 3d-model-playground
 
-# Serve with your preferred method (example using Python)
+# Install dependencies
+npm install
+
+# Start the dev server (uses vite)
+npm run dev
+
+# Or serve with your preferred method (example using Python)
 python -m http.server
 ```
 
-Then navigate to `http://localhost:8000` in your browser.
+Then navigate to `http://localhost:8000` or the port printed by `npm run dev` in your browser.
+
+Vite handles the dev/preview server, so any scripts such as `npm run dev` or `npm run preview` rely on it.
 
 ## License
 
